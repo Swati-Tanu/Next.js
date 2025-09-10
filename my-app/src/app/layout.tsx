@@ -1,5 +1,4 @@
-// Layout
-// This file will be automatically created even if deleted
+// Layout: This file will be automatically created even if deleted
 import Header from "./_lib/header";
 import Footer from "./_lib/footer";
 
