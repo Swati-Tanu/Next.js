@@ -1,5 +1,4 @@
 // localhost:3000/products/{productId}/reviews/{reviewId}
-// Nested Dynamic Route
 export default async function ProductReviews({ params,
  }: { 
    params: Promise<{productId: string; reviewId: string}> }) {
