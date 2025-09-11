@@ -1,4 +1,4 @@
-// Response is cached
+// Response is cached: Caching only works with GET method
 export const dynamic = "force-static";
 
 export async function GET() {
