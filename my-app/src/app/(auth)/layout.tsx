@@ -1,3 +1,4 @@
+// Not reflecting on UI due to Tailwind issue, can view the changes in Element of Dev Tool(works fine)
 "use client";
 
 import Link from "next/link";
