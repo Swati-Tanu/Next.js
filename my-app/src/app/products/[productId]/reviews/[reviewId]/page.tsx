@@ -1,5 +1,6 @@
 // localhost:3000/products/{productId}/reviews/{reviewId}
-import { notFound } from "next/navigation";
+// Navigating Programatically
+import { notFound, redirect } from "next/navigation";
 export default async function ProductReviews({ params,
  }: { 
    params: Promise<{productId: string; reviewId: string}> }) {
@@ -7,7 +8,8 @@ export default async function ProductReviews({ params,
 
     // Using Custom Not Found Page With Personalised Message
     if(parseInt(reviewId)>1000){
-      notFound();
+      // notFound();
+      redirect("/")
     }
 
    return <h1>Review {reviewId} for Product {productId}</h1>; 
