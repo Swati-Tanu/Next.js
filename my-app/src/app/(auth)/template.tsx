@@ -1,8 +1,11 @@
 // Not reflecting on UI due to Tailwind issue, can view the changes in Element of Dev Tool(works fine)
+// Templates are similar to layouts but it gives fresh component instances, recrete DOM element, states are cleared and effects are re-synchronised unlike layout
+// Rename layout.tsx --> template.tsx. Also both can be used together (layout renders first than overwritten by template)
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import "./styles.css";
 
 const navLinks = [
@@ -16,14 +19,18 @@ export default function AuthLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [input, setInput] = useState("");
   const pathname = usePathname();
   return (
     <div>
+      <div>
+        <input value={input} onChange={(e) => setInput(e.target.value)} />
+      </div>
       {navLinks.map((link) => {
-        // const isActive = pathname.startsWith(link.href);
-        const isActive =
-          pathname === link.href ||
-          (pathname.startsWith(link.href) && link.href !== "/");
+        const isActive = (pathname.startsWith(link.href) && link.href !== "/");
+        // const isActive =
+        //   pathname === link.href ||
+        //   (pathname.startsWith(link.href) && link.href !== "/");
         return (
           <Link
             href={link.href}
