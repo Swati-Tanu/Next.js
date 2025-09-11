@@ -1,9 +1,29 @@
 // localhost:3000/products/{productId}: localhost:3000/products/1 or localhost:3000/products/iphone
-// use params to display dynamic content
+// Using dynamic metadata
+import { Metadata } from "next";
+
+type Props = {
+  params: Promise <{productId: string}>
+}
+
 import { notFound } from "next/navigation";
+
+export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
+  const id = (await params).productId
+  const title = await new Promise ((resolve)=>{
+    setTimeout(()=>{
+      resolve(`Iphone ${id}`)
+    }, 100)
+   })
+  return {
+    // title: `Product ${id}`,
+    title: `Product ${title}`
+  }
+}
+
+// use params to display dynamic content
 export default async function ProductDetails({ params,
- }: { 
-   params: Promise<{productId: string}> }) {
+ }: Props) {
    const productId = (await params).productId 
    // Using Custom Not Found Page
    if(parseInt(productId)>1000){
