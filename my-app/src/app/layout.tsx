@@ -2,6 +2,8 @@
 
 // Using title as an object
 import { Metadata } from "next";
+// Using Global Error file
+import { ErrorWrapper } from "./error-wrapper";
 
 import Header from "./_lib/header";
 import Footer from "./_lib/footer";
@@ -24,7 +26,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header/>
-        {children}
+        {/* {children} */}
+         <ErrorWrapper>{children}</ErrorWrapper>
         <Footer/>
       </body>
     </html>
