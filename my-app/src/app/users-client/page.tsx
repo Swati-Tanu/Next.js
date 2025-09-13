@@ -34,6 +34,7 @@ export default function UsersClient() {
         setLoading(false);
       }
     }
+    
     fetchUsers();
   }, []);
 
