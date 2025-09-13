@@ -4,6 +4,8 @@
 import { Metadata } from "next";
 // Using Global Error file
 import { ErrorWrapper } from "./error-wrapper";
+import { ThemeProvider } from "./components/theme-provider";
+
 
 import Header from "./_lib/header";
 import Footer from "./_lib/footer";
@@ -24,6 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <ThemeProvider/>
       <body>
         <Header/>
         {/* {children} */}
